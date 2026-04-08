@@ -10,7 +10,7 @@
                     </group>
 
                     <group string="Step 1: Install Agent">
-                        <field name="download_url" readonly="1"/>
+                        <field name="download_url" readonly="1" widget="url" options="{'target': 'new'}"/>
                         <button name="action_prepare_agent" type="object" string="Generate / Load API Key" class="btn-primary"/>
                         <button name="action_download_agent" type="object" string="Download Agent" class="btn-secondary"/>
                     </group>

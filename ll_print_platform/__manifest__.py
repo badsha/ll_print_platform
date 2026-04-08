@@ -2,7 +2,9 @@
     "name": "Print Master",
     "version": "19.0.1.0.0",
     "category": "Technical",
-    "summary": "Agent-based printing: Odoo → Job Queue → Local Agent → Printer",
+    "summary": "Agent-based printing: Odoo -> Job Queue -> Local Agent -> Printer",
+    "author": "LogicLayer",
+    "website": "https://logiclayerhq.com",
     "depends": ["base", "mail", "point_of_sale", "account"],
     "data": [
         "security/ll_print_rules.xml",
@@ -27,7 +29,6 @@
         "static/description/screenshot_1.png",
         "static/description/screenshot_2.png",
         "static/description/screenshot_3.png",
-        "static/description/screenshot_4.png",
     ],
     "installable": True,
     "application": True,

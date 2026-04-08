@@ -83,6 +83,18 @@
             <div style="grid-column: span 12; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
                 <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">2) On the Agent Machine</h3>
                 <p style="margin: 0 0 10px; color: #374151; line-height: 1.7;">Download the agent binary and run the interactive installer (launches a local browser UI and sets up auto-start):</p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 12px;">
+                    <a href="https://github.com/badsha/odoo-print-agent/releases/latest" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 14px; border-radius: 10px; background: #1d4ed8; color: #ffffff; text-decoration: none; border: 1px solid rgba(29, 78, 216, 0.35); font-weight: 600;">
+                        Download Agent (Releases)
+                    </a>
+                    <a href="https://github.com/badsha/odoo-print-agent" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 14px; border-radius: 10px; background: #ffffff; color: #0f172a; text-decoration: none; border: 1px solid #e5e7eb; font-weight: 600;">
+                        Agent Source Repo
+                    </a>
+                </div>
+                <div style="margin: 0 0 12px; border-left: 4px solid #1d4ed8; padding-left: 10px; color: #374151; line-height: 1.7;">
+                    Pick the asset for your OS (Windows: <strong>.exe</strong>, macOS: <strong>.zip</strong> / binary, Linux: <strong>tar.gz</strong> / binary).
+                    macOS builds may be unsigned; use right-click <strong>Open</strong> the first time if Gatekeeper blocks it.
+                </div>
                 <div style="border: 1px solid #e5e7eb; border-radius: 10px; background: #0b1220; padding: 12px; overflow: auto;">
                     <pre style="margin: 0; color: #e5e7eb; font-size: 13px; line-height: 1.55;"><code>macOS (per-user):   ./odoo-print-agent install
 macOS (system):     sudo ./odoo-print-agent install

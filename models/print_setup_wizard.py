@@ -11,7 +11,7 @@ class PrintSetupWizard(models.TransientModel):
 
     tenant_id = fields.Many2one("res.company", required=True, default=lambda self: self.env.company)
     odoo_url = fields.Char(compute="_compute_odoo_url")
-    download_url = fields.Char(default="https://github.com/CHANGE_ME/print-agent/releases/latest")
+    download_url = fields.Char(default="https://github.com/badsha/odoo-print-agent/releases/latest")
 
     agent_id = fields.Many2one("ll.print.platform.agent", readonly=True)
     api_key = fields.Char(related="agent_id.api_key", readonly=True)
@@ -57,8 +57,9 @@ class PrintSetupWizard(models.TransientModel):
                 [
                     f"odoo_url: {odoo_url}",
                     f"api_key: {api_key}",
-                    "polling_interval: 3",
+                    "poll_interval_seconds: 3",
                     "lease_seconds: 30",
+                    "limit: 20",
                 ]
             )
 

@@ -1,5 +1,5 @@
 <odoo>
-    <menuitem id="ll_print_root" name="Printing" sequence="60" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+    <menuitem id="ll_print_root" name="Print Master" sequence="60" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
 
     <menuitem id="ll_print_menu_config" name="Configuration" parent="ll_print_root" sequence="10" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
     <menuitem id="ll_print_menu_ops" name="Operations" parent="ll_print_root" sequence="20" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>

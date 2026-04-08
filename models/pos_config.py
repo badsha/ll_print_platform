@@ -4,7 +4,7 @@ from odoo import api, fields, models
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    use_ll_print = fields.Boolean(string="Use LL Print Platform", default=False)
+    use_ll_print = fields.Boolean(string="Use Print Master", default=False)
     ll_receipt_printer_id = fields.Many2one(
         "ll.print.printer",
         string="Receipt Printer",

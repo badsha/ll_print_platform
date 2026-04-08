@@ -1,6 +1,6 @@
 <odoo>
     <record id="ir_cron_ll_print_retry" model="ir.cron">
-        <field name="name">LL Print: Retry &amp; Stuck Jobs</field>
+        <field name="name">Print Master: Retry &amp; Stuck Jobs</field>
         <field name="model_id" ref="model_ll_print_retry_service"/>
         <field name="state">code</field>
         <field name="code">model.run()</field>

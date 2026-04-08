@@ -1,8 +1,8 @@
-# LL Print Platform — User Manual
+# Print Master — User Manual
 
 ## Overview
 
-LL Print Platform adds agent-based printing to Odoo:
+Print Master adds agent-based printing to Odoo:
 
 - Odoo queues print jobs (POS receipts, invoices, reports)
 - A local agent polls Odoo over HTTP(S) using an API key
@@ -10,7 +10,7 @@ LL Print Platform adds agent-based printing to Odoo:
 
 ## Install
 
-1. Install the module **LL Print Platform**.
+1. Install the module **Print Master**.
 2. Ensure these dependencies are installed (they are required by the module):
    - Point of Sale
    - Invoicing / Accounting
@@ -95,7 +95,7 @@ Verify in Odoo:
 
 1. Open **Point of Sale → Configuration → Point of Sale**.
 2. Open your POS configuration.
-3. Enable the LL Print Platform option(s) in the POS configuration (receipt/kitchen printing).
+3. Enable the Print Master option(s) in the POS configuration (receipt/kitchen printing).
 4. Select the target printer(s).
 5. Start a POS session and print a receipt.
 

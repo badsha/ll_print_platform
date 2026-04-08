@@ -1,0 +1,79 @@
+<odoo>
+    <record id="view_print_job_tree" model="ir.ui.view">
+        <field name="name">print.job.tree</field>
+        <field name="model">ll.print.platform.job</field>
+        <field name="arch" type="xml">
+            <list decoration-warning="status == 'pending' and is_agent_offline">
+                <field name="name"/>
+                <field name="printer_id"/>
+                <field name="job_type"/>
+                <field name="status"/>
+                <field name="printer_agent_id"/>
+                <field name="agent_last_seen_at"/>
+                <field name="priority"/>
+                <field name="retry_count"/>
+                <field name="max_retries"/>
+                <field name="next_retry_at"/>
+                <field name="error_message"/>
+                <field name="create_date"/>
+                <field name="is_agent_offline" invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_print_job_form" model="ir.ui.view">
+        <field name="name">print.job.form</field>
+        <field name="model">ll.print.platform.job</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="is_agent_offline" invisible="1"/>
+                    <div class="alert alert-warning" invisible="not is_agent_offline">
+                        The agent for this printer appears offline. Ensure the agent service is running and can reach Odoo.
+                    </div>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="tenant_id"/>
+                        <field name="printer_id"/>
+                        <field name="job_type"/>
+                        <field name="status" readonly="1"/>
+                        <field name="priority"/>
+                        <field name="report_name"/>
+                        <field name="retry_count" readonly="1"/>
+                        <field name="max_retries"/>
+                        <field name="next_retry_at" readonly="1"/>
+                        <field name="error_message" readonly="1"/>
+                        <field name="agent_id" readonly="1"/>
+                        <field name="printer_agent_id" readonly="1"/>
+                        <field name="agent_last_seen_at" readonly="1"/>
+                        <field name="lease_uuid" readonly="1"/>
+                        <field name="leased_at" readonly="1"/>
+                        <field name="leased_until" readonly="1"/>
+                        <field name="acked_at" readonly="1"/>
+                        <field name="done_at" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Payload">
+                            <field name="payload" readonly="1"/>
+                        </page>
+                        <page string="Logs">
+                            <field name="log_ids" readonly="1">
+                                <list>
+                                    <field name="timestamp"/>
+                                    <field name="status"/>
+                                    <field name="message"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_print_job" model="ir.actions.act_window">
+        <field name="name">Jobs</field>
+        <field name="res_model">ll.print.platform.job</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

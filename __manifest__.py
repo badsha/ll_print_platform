@@ -1,0 +1,35 @@
+{
+    "name": "LL Print Platform",
+    "version": "19.0.1.0.0",
+    "category": "Technical",
+    "summary": "Agent-based printing: Odoo → Job Queue → Local Agent → Printer",
+    "depends": ["base", "mail", "point_of_sale", "account"],
+    "data": [
+        "security/ll_print_rules.xml",
+        "security/ir.model.access.csv",
+        "data/sequence.xml",
+        "data/cron.xml",
+        "views/print_setup_views.xml",
+        "views/print_agent_views.xml",
+        "views/print_printer_views.xml",
+        "views/print_job_views.xml",
+        "views/account_move_views.xml",
+        "views/menu.xml",
+    ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "ll_print_platform/static/src/js/pos_print.js",
+        ],
+    },
+    "images": [
+        "static/description/banner.png",
+        "static/description/icon.png",
+        "static/description/screenshot_1.png",
+        "static/description/screenshot_2.png",
+        "static/description/screenshot_3.png",
+        "static/description/screenshot_4.png",
+    ],
+    "installable": True,
+    "application": True,
+    "license": "LGPL-3",
+}

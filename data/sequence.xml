@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_ll_print_job" model="ir.sequence">
+        <field name="name">LL Print Job</field>
+        <field name="code">ll.print.platform.job</field>
+        <field name="prefix">PJ/%(year)s/</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

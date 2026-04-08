@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ll_print_printer_user,ll.print.printer user,model_ll_print_printer,base.group_user,1,0,0,0
+access_ll_print_printer_manager,ll.print.printer manager,model_ll_print_printer,ll_print_platform.group_ll_print_manager,1,1,1,1
+access_ll_print_platform_job_user,ll.print.platform.job user,model_ll_print_platform_job,base.group_user,1,0,1,0
+access_ll_print_platform_job_manager,ll.print.platform.job manager,model_ll_print_platform_job,ll_print_platform.group_ll_print_manager,1,1,1,1
+access_ll_print_platform_log_manager,ll.print.platform.log manager,model_ll_print_platform_log,ll_print_platform.group_ll_print_manager,1,0,0,0
+access_ll_print_platform_agent_system,ll.print.platform.agent system,model_ll_print_platform_agent,base.group_system,1,1,1,1
+access_ll_print_setup_wizard_manager,ll.print.setup.wizard manager,model_ll_print_setup_wizard,ll_print_platform.group_ll_print_manager,1,1,1,0
+access_ll_print_platform_direct_print_wizard_manager,ll.print.platform.direct.print.wizard manager,model_ll_print_platform_direct_print_wizard,ll_print_platform.group_ll_print_manager,1,1,1,0

@@ -1,0 +1,12 @@
+<odoo>
+    <menuitem id="ll_print_root" name="Printing" sequence="60" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+
+    <menuitem id="ll_print_menu_config" name="Configuration" parent="ll_print_root" sequence="10" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+    <menuitem id="ll_print_menu_ops" name="Operations" parent="ll_print_root" sequence="20" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+
+    <menuitem id="ll_print_menu_printers" name="Printers" parent="ll_print_menu_config" action="action_print_printer" sequence="5" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+    <menuitem id="ll_print_menu_agents" name="Agents" parent="ll_print_menu_config" action="action_print_agent" sequence="10" groups="base.group_system"/>
+    <menuitem id="ll_print_menu_setup" name="Printing Setup" parent="ll_print_menu_config" action="action_ll_print_setup" sequence="30" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+    <menuitem id="ll_print_menu_direct_print" name="Direct Print" parent="ll_print_menu_ops" action="action_ll_print_platform_direct_print" sequence="5" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+    <menuitem id="ll_print_menu_jobs" name="Jobs" parent="ll_print_menu_ops" action="action_print_job" sequence="10" groups="ll_print_platform.group_ll_print_manager,base.group_system"/>
+</odoo>

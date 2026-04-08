@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_account_move_form_inherit_ll_print_platform" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.ll.print.platform</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_ll_print_platform_queue"
+                    type="object"
+                    string="Queue Print"
+                    class="btn-secondary"
+                    groups="account.group_account_invoice"
+                    invisible="move_type == 'entry' or state == 'cancel'"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

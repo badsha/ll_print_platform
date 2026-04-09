@@ -1,5 +1,7 @@
 # Print Master — User Manual
 
+Odoo App Store: https://apps.odoo.com/apps/modules/19.0/ll_print_platform/
+
 ## Overview
 
 Print Master adds agent-based printing to Odoo:

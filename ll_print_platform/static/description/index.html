@@ -5,17 +5,18 @@
                 <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                     <img src="icon.png" alt="Print Master"
                          style="width: 44px; height: 44px; border-radius: 10px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);">
-                    <h1 style="margin: 0; font-size: 38px; font-weight: 700; line-height: 1.2;">Print Master</h1>
+                    <h1 style="margin: 0; font-size: 38px; font-weight: 700; line-height: 1.2;">Print Master: Direct Local Printing (POS, Invoices, Reports)</h1>
                 </div>
                 <span style="display: inline-block; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.28); font-size: 13px;">Odoo 19 Ready</span>
             </div>
             <p style="margin: 14px 0 0; max-width: 900px; font-size: 17px; line-height: 1.7;">
-                Agent-based printing for POS receipts, invoices, and reports: Odoo queues print jobs and a lightweight
-                local agent executes them on the printers that are actually connected to your workstation or LAN.
+                Direct local printing for POS receipts, invoices, and reports: Odoo queues jobs and a lightweight local
+                agent prints to your USB printer or network printer (ESC/POS thermal receipt printers and standard PDF
+                printers).
             </p>
             <p style="margin: 10px 0 0; max-width: 900px; font-size: 15px; line-height: 1.7; opacity: 0.95;">
-                Built around a clean job lifecycle (lease / ack / done / fail) with job logs, retries, and per-company
-                separation.
+                Built for automatic printing with traceable jobs (lease / ack / done / fail), logs, retries, and
+                multi-company separation. A practical IoT Box alternative for on-premise local printing.
             </p>
             <div style="margin-top: 16px;">
                 <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">POS Receipts</span>
@@ -23,6 +24,10 @@
                 <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">Reports</span>
                 <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">Job Queue</span>
                 <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">Local Agent</span>
+                <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">USB Printer</span>
+                <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">ESC/POS</span>
+                <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">Automatic Printing</span>
+                <span style="display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 14px; margin: 0 8px 8px 0;">IoT Box Alternative</span>
             </div>
         </div>
     </div>
@@ -41,9 +46,9 @@
         <h2 style="margin: 10px 0 16px; font-size: 29px; color: #0f172a;">Why Teams Use Print Master</h2>
         <div style="display: grid; grid-template-columns: 1fr; gap: 14px;">
             <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
-                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Local Printing Where It Matters</h3>
-                <p style="margin: 0; line-height: 1.65; color: #374151;">Print to USB or network printers from the
-                    workstation that has printer access &mdash; perfect for POS counters, kitchens, and warehouses.</p>
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">USB &amp; Network Printer Support</h3>
+                <p style="margin: 0; line-height: 1.65; color: #374151;">Print to a USB printer or network printer from
+                    the workstation that has printer access &mdash; ideal for POS counters, kitchens, and warehouses.</p>
             </div>
             <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
                 <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Traceable Jobs</h3>
@@ -51,14 +56,15 @@
                     and logs inside Odoo (pending, assigned, printing, done, failed).</p>
             </div>
             <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
-                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Separate Printers per Document Type</h3>
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Automatic Printing per Document Type</h3>
                 <p style="margin: 0; line-height: 1.65; color: #374151;">Use different printers for POS receipts vs
                     invoices/reports, with tenant-aware defaults and explicit per-job selection.</p>
             </div>
             <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
                 <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Agent + REST API</h3>
-                <p style="margin: 0; line-height: 1.65; color: #374151;">A clean API contract makes it easy to ship a
-                    production-grade agent (Windows, Linux, macOS) with installers and auto-start.</p>
+                <p style="margin: 0; line-height: 1.65; color: #374151;">A clean API contract makes it easy to run a
+                    production-grade agent (Windows, Linux, macOS) with installers and auto-start &mdash; an IoT Box
+                    alternative for local printing.</p>
             </div>
         </div>
     </div>
@@ -191,6 +197,100 @@
     </div>
 </section>
 
+<section class="oe_container" style="background: #f8fafc;">
+    <div class="oe_row oe_spaced" style="max-width: 1120px; margin: 0 auto; padding: 12px 20px 24px;">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <h2 style="margin: 10px 0 0; font-size: 29px; color: #0f172a;">User Manual</h2>
+            <span style="display: inline-block; padding: 8px 12px; border-radius: 999px; background: #ffffff; border: 1px solid #e5e7eb; color: #0f172a; font-size: 13px;">From the module README</span>
+        </div>
+        <p style="margin: 10px 0 0; color: #4b5563; line-height: 1.7; max-width: 980px;">
+            Copy/paste the App Store link if you need it for documentation or support:
+        </p>
+        <div style="margin-top: 10px; background: #ffffff; color: #0f172a; padding: 10px 12px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 12px; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+            https://apps.odoo.com/apps/modules/19.0/ll_print_platform/
+        </div>
+
+        <div style="margin-top: 14px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px;">
+            <div style="grid-column: span 12; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Install</h3>
+                <ol style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
+                    <li>Install <strong>Print Master</strong>.</li>
+                    <li>Ensure <strong>Point of Sale</strong> and <strong>Invoicing / Accounting</strong> are installed.</li>
+                </ol>
+            </div>
+
+            <div style="grid-column: span 12; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Initial Setup (Per Company)</h3>
+                <ol style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
+                    <li>Open <strong>Printing &rarr; Configuration &rarr; Printing Setup</strong>.</li>
+                    <li>Select the company in <strong>Tenant</strong>.</li>
+                    <li>Click <strong>Generate / Load API Key</strong> and copy the key for the agent machine.</li>
+                </ol>
+                <div style="margin-top: 10px; color: #64748b; font-size: 12px; line-height: 1.6;">
+                    Regenerating the API key invalidates the old key immediately.
+                </div>
+            </div>
+
+            <div style="grid-column: span 12; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Run the Local Agent</h3>
+                <ul style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
+                    <li>Set <strong>odoo_url</strong> and <strong>api_key</strong> in the agent config.</li>
+                    <li>Run the agent as a service (Windows service / systemd / launchd) so it stays online.</li>
+                </ul>
+            </div>
+
+            <div style="grid-column: span 12; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Register Printers</h3>
+                <ul style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
+                    <li>Recommended: define printers in the agent config and let it sync to Odoo.</li>
+                    <li>Verify in Odoo: <strong>Printing &rarr; Configuration &rarr; Printers</strong>.</li>
+                </ul>
+            </div>
+
+            <div style="grid-column: span 12; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Printing Workflows</h3>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
+                    <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; background: #f8fafc;">
+                        <strong style="display: block; margin-bottom: 6px; color: #0f172a;">POS Receipt Printing</strong>
+                        <ol style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.8; font-size: 14px;">
+                            <li>Open <strong>Point of Sale &rarr; Configuration &rarr; Point of Sale</strong>.</li>
+                            <li>Enable Print Master options and select printers.</li>
+                            <li>Start a session and print a receipt.</li>
+                        </ol>
+                    </div>
+                    <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; background: #f8fafc;">
+                        <strong style="display: block; margin-bottom: 6px; color: #0f172a;">Invoice Printing</strong>
+                        <ol style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.8; font-size: 14px;">
+                            <li>Open an invoice/bill.</li>
+                            <li>Click <strong>Queue Print</strong>, select a printer, confirm.</li>
+                        </ol>
+                    </div>
+                    <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; background: #f8fafc;">
+                        <strong style="display: block; margin-bottom: 6px; color: #0f172a;">Reports (Any QWeb PDF)</strong>
+                        <ol style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.8; font-size: 14px;">
+                            <li>Open <strong>Printing &rarr; Operations &rarr; Direct Print</strong>.</li>
+                            <li>Select a report, select a printer, set record IDs, queue the job.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div style="margin-top: 10px; color: #64748b; font-size: 12px; line-height: 1.6;">
+                    Monitor jobs in <strong>Printing &rarr; Operations &rarr; Jobs</strong>.
+                </div>
+            </div>
+
+            <div style="grid-column: span 12; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #ffffff;">
+                <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Troubleshooting</h3>
+                <ul style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
+                    <li><strong>401 Unauthorized:</strong> API key is wrong or was regenerated.</li>
+                    <li><strong>Jobs stay pending:</strong> agent not running, wrong Odoo URL, or agent cannot reach Odoo.</li>
+                    <li><strong>Jobs failed:</strong> open the job and review the error message and logs.</li>
+                    <li><strong>Printers missing:</strong> run printer sync again from the agent.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="oe_container" style="background: #ffffff;">
     <div class="oe_row oe_spaced" style="max-width: 1120px; margin: 0 auto; padding: 6px 20px 24px;">
         <h2 style="margin: 10px 0 14px; font-size: 29px; color: #0f172a;">Screenshots</h2>
@@ -215,8 +315,9 @@
     <div class="oe_row oe_spaced" style="max-width: 1120px; margin: 0 auto; padding: 12px 20px 24px;">
         <h2 style="margin: 10px 0 14px; font-size: 29px; color: #0f172a;">Key Features</h2>
         <ul style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
-            <li>POS integration: queue ESC/POS jobs from Point of Sale.</li>
+            <li>POS integration: automatic printing for receipts, with ESC/POS support.</li>
             <li>Invoices and reports: queue PDF jobs from invoices and any report action.</li>
+            <li>USB printer and network printer support via a local agent (IoT Box alternative).</li>
             <li>Printer registry synced from the agent via stable printer identifiers.</li>
             <li>Job lifecycle with leasing and acknowledgements for safe distributed processing.</li>
             <li>Job logs in Odoo for auditability and troubleshooting.</li>
@@ -309,7 +410,7 @@
                 <li>Kitchen printers</li>
                 <li>Label printers</li>
                 <li>Office printers for PDF reports</li>
-                <li>USB and network printers (via local agent)</li>
+                <li>USB printers and network printers (via local agent)</li>
             </ul>
         </div>
     </div>
@@ -339,7 +440,7 @@
         <div style="border: 1px solid #e5e7eb; border-radius: 12px; background: #ffffff; padding: 16px;">
             <p style="margin: 0 0 8px; color: #374151;"><strong>Module:</strong> Print Master</p>
             <p style="margin: 0 0 8px; color: #374151;"><strong>Version:</strong> 19.0</p>
-            <p style="margin: 0 0 8px; color: #374151;"><strong>License:</strong> LGPL-3</p>
+            <p style="margin: 0 0 8px; color: #374151;"><strong>License:</strong> OPL-1</p>
             <p style="margin: 0; color: #374151;"><strong>Author:</strong> <a href="https://logiclayerhq.com"
                                                                               target="_blank" rel="noopener noreferrer"
                                                                               style="color: #1d4ed8; text-decoration: none;">LogicLayer</a>

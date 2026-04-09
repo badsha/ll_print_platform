@@ -1,8 +1,8 @@
 {
-    "name": "Print Master",
+    "name": "Print Master: Direct Local Printing (POS, Invoices, Reports)",
     "version": "19.0.1.0.1",
-    "category": "Technical",
-    "summary": "Agent-based printing: Odoo -> Job Queue -> Local Agent -> Printer",
+    "category": "Point of Sale",
+    "summary": "Direct local printing for Odoo (POS receipts, invoices, reports) via USB/network printers; ESC/POS, automatic printing, IoT Box alternative",
     "author": "LogicLayer",
     "website": "https://logiclayerhq.com",
     "license": "OPL-1",

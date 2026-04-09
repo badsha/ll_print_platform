@@ -1,10 +1,13 @@
 {
     "name": "Print Master",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "category": "Technical",
     "summary": "Agent-based printing: Odoo -> Job Queue -> Local Agent -> Printer",
     "author": "LogicLayer",
     "website": "https://logiclayerhq.com",
+    "license": "OPL-1",
+    "price": 49.99,
+    "currency": "USD",
     "depends": ["base", "mail", "point_of_sale", "account"],
     "data": [
         "security/ll_print_rules.xml",
@@ -32,5 +35,4 @@
     ],
     "installable": True,
     "application": True,
-    "license": "LGPL-3",
 }

@@ -103,15 +103,19 @@
 
                 <div style="margin: 0 0 18px;">
                     <div style="font-size: 13px; color: #64748b; margin-bottom: 6px;">Copy/paste these URLs (Odoo Apps disables external links):</div>
-                    <pre style="margin: 0; background: #0f172a !important; color: #e5e7eb !important; padding: 10px 12px; border-radius: 10px; overflow: auto; border: 1px solid rgba(148, 163, 184, 0.25); font-size: 12px; line-height: 1.55; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">Latest release: https://github.com/badsha/odoo-print-agent/releases/latest
-Repository:      https://github.com/badsha/odoo-print-agent
-User manual:     https://github.com/badsha/odoo-print-agent#readme</pre>
+                    <div style="background: #ffffff; color: #0f172a; padding: 10px 12px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 12px; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+                        <div>Latest release: https://github.com/badsha/odoo-print-agent/releases/latest</div>
+                        <div>Repository: https://github.com/badsha/odoo-print-agent</div>
+                        <div>User manual: https://github.com/badsha/odoo-print-agent#readme</div>
+                    </div>
                 </div>
 
                 <div style="margin: -12px 0 24px; color: #64748b; font-size: 12px; line-height: 1.6;">
                     If your preview blocks clicks, copy/paste:
-                    <pre style="margin-top: 6px; background: #0f172a !important; color: #e5e7eb !important; padding: 10px 12px; border-radius: 10px; overflow: auto; border: 1px solid rgba(148, 163, 184, 0.25); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">https://github.com/badsha/odoo-print-agent/releases/latest
-https://github.com/badsha/odoo-print-agent</pre>
+                    <div style="margin-top: 6px; background: #ffffff; color: #0f172a; padding: 10px 12px; border-radius: 10px; overflow: auto; border: 1px solid #e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 12px; line-height: 1.65;">
+                        <div>https://github.com/badsha/odoo-print-agent/releases/latest</div>
+                        <div>https://github.com/badsha/odoo-print-agent</div>
+                    </div>
                 </div>
 
                 <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 24px;">
@@ -146,19 +150,21 @@ https://github.com/badsha/odoo-print-agent</pre>
                             <strong>Optional:</strong> define printers in the agent so they auto-sync to Odoo (recommended).
                         </div>
                     </div>
-                    <div style="margin-top: 12px; border: 1px solid rgba(148, 163, 184, 0.25); border-radius: 10px; background: #0f172a !important; padding: 12px; overflow: auto;">
-                        <pre style="margin: 0; background: #0f172a !important; color: #e5e7eb !important; font-size: 12px; line-height: 1.55; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">{
-  "odoo_url": "https://YOUR-ODOO-URL",
-  "api_key": "YOUR_API_KEY",
-  "printers": [
-    {
-      "agent_identifier": "counter_1_receipt",
-      "name": "POS Counter 1",
-      "printer_type": "receipt",
-      "os_printer_name": "EPSON_TM_T20"
-    }
-  ]
-}</pre>
+                    <div style="margin-top: 12px; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; padding: 12px; overflow: auto;">
+                        <div style="font-size: 12px; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; color: #0f172a;">
+                            <div>{</div>
+                            <div>&nbsp;&nbsp;"odoo_url": "https://YOUR-ODOO-URL",</div>
+                            <div>&nbsp;&nbsp;"api_key": "YOUR_API_KEY",</div>
+                            <div>&nbsp;&nbsp;"printers": [</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;{</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"agent_identifier": "counter_1_receipt",</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "POS Counter 1",</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"printer_type": "receipt",</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"os_printer_name": "EPSON_TM_T20"</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                            <div>&nbsp;&nbsp;]</div>
+                            <div>}</div>
+                        </div>
                     </div>
                     <div style="margin-top: 10px; color: #64748b; font-size: 12px; line-height: 1.6;">
                         Keep <strong>agent_identifier</strong> stable per physical printer. If it changes, Odoo will treat it as a new printer.

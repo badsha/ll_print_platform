@@ -46,6 +46,12 @@ Notes:
 
 This repository includes a Go agent in `odoo-print-agent/` which can be packaged separately.
 
+Agent downloads:
+- GitHub releases: https://github.com/badsha/odoo-print-agent/releases/latest
+- Source repository: https://github.com/badsha/odoo-print-agent
+
+If the GitHub release page shows no Assets (for example no `odoo-print-agent.exe`), build the agent from source.
+
 1. Edit the agent config:
 
    - Default path (recommended):
@@ -64,6 +70,15 @@ cd odoo-print-agent
 go run . configure --odoo-url https://YOUR-ODOO-URL --api-key YOUR_API_KEY
 go run . doctor
 go run . run
+```
+
+Build a standalone Windows EXE (Windows 11):
+
+```powershell
+git clone https://github.com/badsha/odoo-print-agent.git
+cd odoo-print-agent
+go build -o odoo-print-agent.exe .
+.\odoo-print-agent.exe install
 ```
 
 MVP behavior:

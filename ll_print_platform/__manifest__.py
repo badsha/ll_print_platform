@@ -5,7 +5,7 @@
     "summary": "Direct local printing for Odoo (POS receipts, invoices, reports) via USB/network printers; ESC/POS, automatic printing, IoT Box alternative",
     "author": "LogicLayer",
     "website": "https://logiclayerhq.com",
-    "license": "LGPL-1",
+    "license": "LGPL-3",
     "depends": ["base", "mail", "point_of_sale", "account"],
     "data": [
         "security/ll_print_rules.xml",

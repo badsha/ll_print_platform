@@ -1,13 +1,11 @@
 {
     "name": "Print Master: Direct Local Printing (POS, Invoices, Reports)",
-    "version": "19.0.1.0.1",
+    "version": "19.0.1.0.2",
     "category": "Point of Sale",
     "summary": "Direct local printing for Odoo (POS receipts, invoices, reports) via USB/network printers; ESC/POS, automatic printing, IoT Box alternative",
     "author": "LogicLayer",
     "website": "https://logiclayerhq.com",
-    "license": "OPL-1",
-    "price": 49.99,
-    "currency": "USD",
+    "license": "LGPL-1",
     "depends": ["base", "mail", "point_of_sale", "account"],
     "data": [
         "security/ll_print_rules.xml",

@@ -1,6 +1,6 @@
-{
+﻿{
     "name": "Print Master: Direct Local Printing (POS, Invoices, Reports)",
-    "version": "19.0.1.0.2",
+    "version": "19.0.1.0.3",
     "category": "Point of Sale",
     "summary": "Direct local printing for Odoo (POS receipts, invoices, reports) via USB/network printers; ESC/POS, automatic printing, IoT Box alternative",
     "author": "LogicLayer",
@@ -17,6 +17,7 @@
         "views/print_printer_views.xml",
         "views/print_job_views.xml",
         "views/account_move_views.xml",
+        "views/pos_config_views.xml",
         "views/menu.xml",
     ],
     "assets": {

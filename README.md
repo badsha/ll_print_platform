@@ -1,142 +1,82 @@
-# Print Master — User Manual
+# Print Master (ll_print_platform) — Odoo 19
 
 Odoo App Store: https://apps.odoo.com/apps/modules/19.0/ll_print_platform/
 
+Local print agent repository: https://github.com/badsha/odoo-print-agent
+
 ## Overview
 
-Print Master adds agent-based printing to Odoo:
+Print Master queues print jobs in Odoo (POS receipts, invoices, reports). A **local agent** on a PC with printers polls Odoo over HTTP(S) with an API key, prints locally, and updates job status.
 
-- Odoo queues print jobs (POS receipts, invoices, reports)
-- A local agent polls Odoo over HTTP(S) using an API key
-- The agent prints locally and updates job status (ack/done/fail)
+## Install (Odoo module)
 
-## Install
-
-1. Install the module **Print Master**.
-2. Ensure these dependencies are installed (they are required by the module):
+1. Install **Print Master** from the App Store (or this repo).
+2. Ensure dependencies are installed:
    - Point of Sale
    - Invoicing / Accounting
+3. Open **Printing → Configuration → Printing Setup**
+4. Select company (Tenant) → **Generate / Load API Key** → copy the key
 
-## Fresh Start (Docker)
+## Agent setup — choose one path
 
-If you want to reset everything (database + filestore):
+### Option A — Quick setup (Windows, recommended for shops)
 
-```bash
-cd /Users/mohammadhamid/projects/odoo-dev
-docker compose down -v --remove-orphans
-docker compose up -d --build
+1. Open the latest agent release: https://github.com/badsha/odoo-print-agent/releases/latest
+2. Download the **Windows EXE** from **Assets** (when published).
+3. Run:
+
+```text
+odoo-print-agent.exe configure --odoo-url http://YOUR-ODOO:8069 --database YOUR_DB --api-key YOUR_KEY
+odoo-print-agent.exe doctor
+odoo-print-agent.exe run
 ```
 
-Then open Odoo:
-- `http://127.0.0.1:8069`
-- Create a new database (master password: `admin`, from `config/odoo.conf`)
+4. Optional: `odoo-print-agent.exe install` (elevated) to run as a Windows service.
 
-## Initial Setup (Per Company)
+### Option B — Manual / build from source (developers)
 
-1. Open **Printing → Configuration → Printing Setup**.
-2. Select the company in **Tenant**.
-3. Click **Generate / Load API Key**.
-4. Copy the API key and save it for the agent machine.
-
-Notes:
-- The API key is stored on the Agent record, not on the wizard.
-- You can regenerate the key; the old one stops working immediately.
-
-## Run the Local Agent (MVP)
-
-This repository includes a Go agent in `odoo-print-agent/` which can be packaged separately.
-
-1. Edit the agent config:
-
-   - Default path (recommended):
-     - macOS: `~/Library/Application Support/odoo-print-agent/config.json`
-     - Linux: `~/.config/odoo-print-agent/config.json`
-     - Windows: `%AppData%\\odoo-print-agent\\config.json`
-   - If you run the agent from `odoo-print-agent/` and a local `./config.json` exists, it will use that file (convenient for development).
-   - Set:
-     - `odoo_url` to your Odoo base URL
-     - `api_key` to the key from Printing Setup
-
-2. Run the agent:
+1. Install [Go](https://go.dev/dl/)
+2. Clone https://github.com/badsha/odoo-print-agent
+3. Build and run:
 
 ```bash
 cd odoo-print-agent
-go run . configure --odoo-url https://YOUR-ODOO-URL --api-key YOUR_API_KEY
+go build -o odoo-print-agent.exe .   # Windows
+# or: go run . ...
+
+go run . configure --odoo-url http://YOUR-ODOO:8069 --database YOUR_DB --api-key YOUR_KEY
 go run . doctor
 go run . run
 ```
 
-MVP behavior:
-- The agent syncs printers to Odoo (from `config.json`)
-- It polls jobs and prints them locally based on each printer mapping:
-  - `os_printer_name` (macOS/Linux CUPS queue)
-  - `network_host`/`network_port` for LAN raw TCP printers (raw/ESC-POS)
-  - otherwise spools to `spool_dir`
+### Windows extras
 
-## Register Printers
+- **wkhtmltopdf** must be available to the Odoo server (PATH) for invoice PDFs.
+- **SumatraPDF** is used by the agent for PDF and POS receipt image printing on Windows (`sumatra_pdf_path` in config if needed).
+- If Odoo hosts **multiple databases**, set `database` in the agent config (or `--database`).
 
-You can register printers from the agent (recommended) or via API manually.
+## POS printing
 
-Agent-driven:
-- Add printers to `odoo-print-agent/config.json` under `"printers": [...]`
-- Run the agent; it will call `/api/print/printers/sync`
+1. **Point of Sale → Configuration → Point of Sale** → your POS
+2. Enable **Print Master** → select Receipt Printer (and Kitchen if needed)
+3. Save → start a **new** POS session → print a receipt
+4. Check **Printing → Operations → Jobs**
 
-Manual API:
+## Invoice printing
 
-```bash
-curl -sS -X POST "https://YOUR-ODOO-URL/api/print/printers/sync" \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"printers":[{"agent_identifier":"test_printer_1","name":"Test Printer","printer_type":"receipt","code":"TEST1"}]}'
-```
-
-Verify in Odoo:
-- **Printing → Configuration → Printers**
-
-## POS Receipt Printing
-
-1. Open **Point of Sale → Configuration → Point of Sale**.
-2. Open your POS configuration.
-3. Enable the Print Master option(s) in the POS configuration (receipt/kitchen printing).
-4. Select the target printer(s).
-5. Start a POS session and print a receipt.
-
-Verify:
-- **Printing → Operations → Jobs** shows new jobs.
-- The agent should process jobs and mark them done.
-
-## Invoice Printing
-
-1. Open an invoice/bill.
-2. Click **Queue Print**.
-3. Select printer and confirm.
-
-Verify:
-- **Printing → Operations → Jobs**
-
-## Reports (Any QWeb PDF)
-
-Use **Printing → Operations → Direct Print**:
-
-1. Select a report (PDF)
-2. Select a printer
-3. Set `record_ids` (comma-separated IDs for the report’s model)
-   - To find a record ID: enable Developer Mode and open the record; the URL contains `id=<number>`
-   - Easier: launch printing from a document (example: invoice “Queue Print”) so `record_ids` is pre-filled
-4. Queue the job
-
-## Printer Defaults (Per Document Type)
-
-Printers support default flags:
-- `default_for_invoice`: preferred for invoice reports
-- `default_for_report`: preferred for other reports
-
-You can set these on the printer form:
-- **Printing → Configuration → Printers**
+1. Open invoice → **Queue Print** → choose printer
+2. Verify job in **Printing → Operations → Jobs**
 
 ## Troubleshooting
 
-- API returns `401 Unauthorized`: wrong/missing API key, or key regenerated.
-- Jobs stay `pending`: agent not running, wrong Odoo URL, or agent cannot reach Odoo.
-- Jobs `failed`: open the job and check the error message and logs.
-- Printers missing: run printer sync again from the agent or the `/printers/sync` API.
+| Symptom | Likely cause |
+|---------|----------------|
+| `401 Unauthorized` | Wrong/regenerated API key |
+| Jobs stay `pending` | Agent not running / wrong URL |
+| `404` / API missing | Multi-DB: set agent `database` |
+| POS checkbox missing | Upgrade to this module version |
+| Windows raw/POS fail | Use updated agent + Sumatra |
+
+## License
+
+LGPL-3 (see module manifest)

@@ -164,7 +164,7 @@
                         <li>In Odoo, open <strong>Printing &rarr; Configuration &rarr; Printing Setup</strong> and generate your API key.</li>
                         <li>Download and run the agent installer on the machine that has printer access.</li>
                         <li>When the installer prints a URL like <strong>http://127.0.0.1:PORT/</strong>, open it in your browser.</li>
-                        <li>Enter your Odoo URL and paste the API key, select printers, then click Save.</li>
+                        <li>Enter your Odoo URL, <strong>database name</strong> (required if Odoo has more than one database), and paste the API key, select printers, then click Save.</li>
                         <li>Run/enable the agent service (Windows service / systemd / launchd) so it keeps running.</li>
                     </ol>
                 </div>
@@ -176,13 +176,20 @@
                             <strong>Required:</strong> <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">odoo_url</span> and <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">api_key</span> (generated from Printing Setup).
                         </div>
                         <div>
+                            <strong>Required on multi-database Odoo:</strong> <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">database</span> (your Odoo database name). Without it the agent may get <strong>404</strong> when polling.
+                        </div>
+                        <div>
                             <strong>Optional:</strong> define printers in the agent so they auto-sync to Odoo (recommended).
+                        </div>
+                        <div>
+                            <strong>Windows:</strong> install <strong>SumatraPDF</strong> for PDF and POS receipt image printing (set <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">sumatra_pdf_path</span> in config if it is not on PATH). On the Odoo server, ensure <strong>wkhtmltopdf</strong> is on PATH so invoice PDFs can be generated.
                         </div>
                     </div>
                     <div style="margin-top: 12px; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; padding: 12px; overflow: auto;">
                         <div style="font-size: 12px; line-height: 1.65; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; color: #0f172a;">
                             <div>{</div>
                             <div>&nbsp;&nbsp;"odoo_url": "https://YOUR-ODOO-URL",</div>
+                            <div>&nbsp;&nbsp;"database": "YOUR_DATABASE_NAME",</div>
                             <div>&nbsp;&nbsp;"api_key": "YOUR_API_KEY",</div>
                             <div>&nbsp;&nbsp;"printers": [</div>
                             <div>&nbsp;&nbsp;&nbsp;&nbsp;{</div>
@@ -258,6 +265,8 @@
                 <h3 style="margin: 0 0 8px; font-size: 18px; color: #111827;">Run the Local Agent</h3>
                 <ul style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
                     <li>Set <strong>odoo_url</strong> and <strong>api_key</strong> in the agent config.</li>
+                    <li>If Odoo has more than one database, also set <strong>database</strong>.</li>
+                    <li>On Windows, install <strong>SumatraPDF</strong> for PDF / POS image printing.</li>
                     <li>Run the agent as a service (Windows service / systemd / launchd) so it stays online.</li>
                 </ul>
             </div>
@@ -277,8 +286,8 @@
                         <strong style="display: block; margin-bottom: 6px; color: #0f172a;">POS Receipt Printing</strong>
                         <ol style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.8; font-size: 14px;">
                             <li>Open <strong>Point of Sale &rarr; Configuration &rarr; Point of Sale</strong>.</li>
-                            <li>Enable Print Master options and select printers.</li>
-                            <li>Start a session and print a receipt.</li>
+                            <li>Enable <strong>Use Print Master</strong>, select Receipt Printer (and Kitchen if needed), then Save.</li>
+                            <li>Start a <strong>new</strong> POS session and print a receipt.</li>
                         </ol>
                     </div>
                     <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; background: #f8fafc;">
@@ -306,7 +315,10 @@
                 <ul style="margin: 0; padding-left: 20px; color: #374151; line-height: 1.85; font-size: 15px;">
                     <li><strong>401 Unauthorized:</strong> API key is wrong or was regenerated.</li>
                     <li><strong>Jobs stay pending:</strong> agent not running, wrong Odoo URL, or agent cannot reach Odoo.</li>
+                    <li><strong>404 / API missing:</strong> set the agent <strong>database</strong> name (multi-database Odoo).</li>
                     <li><strong>Jobs failed:</strong> open the job and review the error message and logs.</li>
+                    <li><strong>Windows POS / raw print failed:</strong> use the updated agent with SumatraPDF for JPEG/PNG/PDF jobs.</li>
+                    <li><strong>Invoice PDF empty / missing:</strong> install wkhtmltopdf on the Odoo server and ensure it is on PATH.</li>
                     <li><strong>Printers missing:</strong> run printer sync again from the agent.</li>
                 </ul>
             </div>

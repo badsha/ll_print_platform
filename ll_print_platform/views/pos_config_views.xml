@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_config_form_ll_print" model="ir.ui.view">
+        <field name="name">pos.config.form.ll.print</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='configuration']//setting[field[@name='is_posbox']]" position="after">
+                <setting string="Print Master" help="Print receipts via Print Master agent (local printing)">
+                    <field name="use_ll_print"/>
+                    <div class="content-group mt16" invisible="not use_ll_print">
+                        <div class="row mb-2">
+                            <div class="col-lg-4 o_light_label">
+                                <label string="Receipt Printer" for="ll_receipt_printer_id"/>
+                            </div>
+                            <div class="col-lg-8">
+                                <field name="ll_receipt_printer_id"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 o_light_label">
+                                <label string="Kitchen Printer" for="ll_kitchen_printer_id"/>
+                            </div>
+                            <div class="col-lg-8">
+                                <field name="ll_kitchen_printer_id"/>
+                            </div>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

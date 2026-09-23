@@ -1,4 +1,4 @@
-﻿{
+{
     "name": "Print Master: Direct Local Printing (POS, Invoices, Reports)",
     "version": "19.0.1.0.3",
     "category": "Point of Sale",
